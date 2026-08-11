@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-create-sequence-book-author-seq
+      author: bookstore
+      changes:
+        - createSequence:
+            sequenceName: book_author_seq
+            incrementBy: 1
+            startValue: 1
+  - changeSet:
+      id: 003-create-table-book-author-info
+      author: bookstore
+      changes:
+        - createTable:
+            tableName: book_author_info
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: age
+                  type: INT
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  name: valid_flag
+                  type: CHAR(1)
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: updated_by
+                  type: VARCHAR(255)
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP

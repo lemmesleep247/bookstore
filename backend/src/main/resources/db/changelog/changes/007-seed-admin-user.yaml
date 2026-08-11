@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: 007-seed-admin-user
+      author: bookstore
+      changes:
+        - insert:
+            tableName: user_info
+            columns:
+              - column:
+                  name: id
+                  valueComputed: nextval('user_seq')
+              - column:
+                  name: user_name
+                  value: admin
+              - column:
+                  name: password
+                  # BCrypt hash of "admin" - change this password after first login in a real deployment
+                  value: $2b$10$hF0F0CdrO9hBbsfCpNwnd.pEM4C1/91.gvwecN8U97JSInOOSTSZq
+              - column:
+                  name: full_name
+                  value: Administrator
+              - column:
+                  name: email
+                  value: admin@bookstore.local
+              - column:
+                  name: role
+                  value: ADMIN
+              - column:
+                  name: valid_flag
+                  value: Y
+              - column:
+                  name: created_by
+                  value: System
+              - column:
+                  name: created_at
+                  valueComputed: now()

@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/001-create-book-category-info.yaml
+  - include:
+      file: db/changelog/changes/002-create-book-publisher-info.yaml
+  - include:
+      file: db/changelog/changes/003-create-book-author-info.yaml
+  - include:
+      file: db/changelog/changes/004-create-book-info.yaml
+  - include:
+      file: db/changelog/changes/005-create-user-info.yaml
+  - include:
+      file: db/changelog/changes/006-create-book-transaction-info.yaml
+  - include:
+      file: db/changelog/changes/007-seed-admin-user.yaml

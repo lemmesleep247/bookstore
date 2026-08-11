@@ -1,0 +1,66 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005-create-sequence-user-seq
+      author: bookstore
+      changes:
+        - createSequence:
+            sequenceName: user_seq
+            incrementBy: 1
+            startValue: 1
+  - changeSet:
+      id: 005-create-table-user-info
+      author: bookstore
+      changes:
+        - createTable:
+            tableName: user_info
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+                    uniqueConstraintName: uk_user_info_user_name
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: full_name
+                  type: VARCHAR(255)
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  name: mobile_no
+                  type: VARCHAR(10)
+              - column:
+                  name: address
+                  type: VARCHAR(500)
+              - column:
+                  name: role
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: valid_flag
+                  type: CHAR(1)
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: updated_by
+                  type: VARCHAR(255)
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
